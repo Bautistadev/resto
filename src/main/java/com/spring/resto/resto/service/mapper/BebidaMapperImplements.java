@@ -28,7 +28,7 @@ public class BebidaMapperImplements implements BebidaMapper{
 		// TODO Auto-generated method stub
 		
 		Bebida map = new Bebida();
-		map.setNombre(bebidaDTO.getNombre());
+		map.setNombre(bebidaDTO.getNombre().toUpperCase());
 		map.setDescripcion(bebidaDTO.getDescripcion());
 		map.setMarca(bebidaDTO.getMarca());
 		map.setdateCreated(new Date());

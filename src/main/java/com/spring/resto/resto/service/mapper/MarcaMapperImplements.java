@@ -11,7 +11,7 @@ public class MarcaMapperImplements implements MarcaMapper{
 		// TODO Auto-generated method stub
 		
 		Marca result = new Marca();
-		result.setNombre(requestDTO.getNombre());
+		result.setNombre(requestDTO.getNombre().toUpperCase());
 		
 		return result;
 	}

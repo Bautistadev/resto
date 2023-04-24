@@ -31,7 +31,7 @@ public class PlatoMapperImplements implements PlatoMapper{
 		// TODO Auto-generated method stub
 		
 		Plato response = new Plato();
-		response.setNombre(plato.getNombre());
+		response.setNombre(plato.getNombre().toUpperCase());
 		response.setDescripcion(plato.getDescripcion());
 		response.setDateCreated(new Date());
 		
