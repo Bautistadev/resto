@@ -27,7 +27,7 @@ public class Ocupacion {
 	@Column(name="fin",nullable = true)
 	private LocalDateTime fin;
 	
-	@Column(name="idDispositivo",nullable = false)
+	@Column(name="idDispositivo",nullable = true)
 	private String idDispositivo;
 
 	
@@ -93,8 +93,6 @@ public class Ocupacion {
 	public void setMesa(Mesa mesa) {
 		this.mesa = mesa;
 	}
-	
-	
 	
 	public List<DetallePlato> getDetallePlato() {
 		return detallePlato;

@@ -22,7 +22,7 @@ public class persona {
 	private String apellido;
 	
 	@Column(name = "dni",nullable = false)
-	private String dni;
+	private Integer dni;
 	
 	@Column(name = "password",nullable = false)
 	private String password;
