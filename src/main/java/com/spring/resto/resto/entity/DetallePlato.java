@@ -18,6 +18,22 @@ public class DetallePlato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	public Porcion getPorcion() {
+		return porcion;
+	}
+
+	public void setPorcion(Porcion porcion) {
+		this.porcion = porcion;
+	}
+
+	public Ocupacion getOcupacion() {
+		return ocupacion;
+	}
+
+	public void setOcupacion(Ocupacion ocupacion) {
+		this.ocupacion = ocupacion;
+	}
+
 	@Column(name = "cantidad",nullable = false)
 	private Integer cantidad;
 	
