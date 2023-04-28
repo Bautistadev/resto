@@ -17,23 +17,6 @@ public class DetallePlato {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	public Porcion getPorcion() {
-		return porcion;
-	}
-
-	public void setPorcion(Porcion porcion) {
-		this.porcion = porcion;
-	}
-
-	public Ocupacion getOcupacion() {
-		return ocupacion;
-	}
-
-	public void setOcupacion(Ocupacion ocupacion) {
-		this.ocupacion = ocupacion;
-	}
-
 	@Column(name = "cantidad",nullable = false)
 	private Integer cantidad;
 	
@@ -83,6 +66,22 @@ public class DetallePlato {
 
 	public void setPlato(Plato plato) {
 		this.plato = plato;
+	}
+	
+	public Porcion getPorcion() {
+		return porcion;
+	}
+
+	public void setPorcion(Porcion porcion) {
+		this.porcion = porcion;
+	}
+
+	public Ocupacion getOcupacion() {
+		return ocupacion;
+	}
+
+	public void setOcupacion(Ocupacion ocupacion) {
+		this.ocupacion = ocupacion;
 	}
 
 	@Override

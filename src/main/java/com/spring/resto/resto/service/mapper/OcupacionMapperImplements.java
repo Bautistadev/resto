@@ -44,6 +44,7 @@ public class OcupacionMapperImplements implements OcupacionMapper{
 		
 		ocupacionDTO.setId(ocupacion.getId());
 		ocupacionDTO.setInicio(ocupacion.getInicio());
+		
 		if(ocupacion.getFin() != null)
 			ocupacionDTO.setFin(ocupacion.getFin());
 		
@@ -64,15 +65,82 @@ public class OcupacionMapperImplements implements OcupacionMapper{
 	}
 
 	@Override
-	public Ocupacion map(OcupacionDTO ocupacionDTO) {
+	public Ocupacion map(OcupacionDTO ocupacionDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Ocupacion ocupacion = new Ocupacion();
+		
+		//---------------------BEBIDAS-----------------------//
+		Iterable<DetalleBebida> detalleBebida = ocupacionDTO.getDetalleBebida(); 
+		Iterator<DetalleBebida> detalleBebidaIterator = detalleBebida.iterator();
+		List<DetalleBebidaDTO> listaDetalleBebidaDTO = new ArrayList<>();
+		List<DetalleBebida> listaDetalleBebida = new ArrayList<>();
+		
+		//---------------------PLATOS------------------------//
+		Iterable<DetallePlato> detallePlato = ocupacionDTO.getDetallePlato();
+		Iterator<DetallePlato> detallePlatoIterator = detallePlato.iterator();
+		List<DetallePlatoDTO> listaDetallePlatoDTO = new ArrayList<>();
+		List<DetallePlato> listaDetallePlato = new ArrayList<>();
+		
+		
+		ocupacion.setId(ocupacionDTO.getId());
+		ocupacion.setInicio(ocupacionDTO.getInicio());
+		
+		if(ocupacionDTO.getFin() != null)
+			ocupacion.setFin(ocupacionDTO.getFin());
+		
+		while(detalleBebidaIterator.hasNext())
+			listaDetalleBebidaDTO.add(bebidaMapper.map(detalleBebidaIterator.next()));
+		while(listaDetalleBebidaDTO.iterator().hasNext())
+			listaDetalleBebida.add(bebidaMapper.map(listaDetalleBebidaDTO.iterator().next()));
+		
+		while(detallePlatoIterator.hasNext())
+			listaDetallePlatoDTO.add(platoMapper.map(detallePlatoIterator.next()));
+		while(listaDetallePlatoDTO.iterator().hasNext())
+			listaDetallePlato.add(platoMapper.map(listaDetallePlatoDTO.iterator().next()));
+		
+		ocupacion.setDetalleBebida(listaDetalleBebida);
+		ocupacion.setDetallePlato(listaDetallePlato);
+		
+		return ocupacion;
 	}
 
 	@Override
-	public Ocupacion map(OcupacionRequestDTO ocuapcionDTO) {
+	public Ocupacion map(OcupacionRequestDTO ocupacionDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		Ocupacion ocupacion = new Ocupacion();
+		
+		//---------------------BEBIDAS-----------------------//
+		Iterable<DetalleBebida> detalleBebida = ocupacionDTO.getDetalleBebida(); 
+		Iterator<DetalleBebida> detalleBebidaIterator = detalleBebida.iterator();
+		List<DetalleBebidaDTO> listaDetalleBebidaDTO = new ArrayList<>();
+		List<DetalleBebida> listaDetalleBebida = new ArrayList<>();
+		
+		//---------------------PLATOS------------------------//
+		Iterable<DetallePlato> detallePlato = ocupacionDTO.getDetallePlato();
+		Iterator<DetallePlato> detallePlatoIterator = detallePlato.iterator();
+		List<DetallePlatoDTO> listaDetallePlatoDTO = new ArrayList<>();
+		List<DetallePlato> listaDetallePlato = new ArrayList<>();
+		
+		ocupacion.setInicio(ocupacionDTO.getInicio());
+		
+		if(ocupacionDTO.getFin() != null)
+			ocupacion.setFin(ocupacionDTO.getFin());
+		
+		while(detalleBebidaIterator.hasNext())
+			listaDetalleBebidaDTO.add(bebidaMapper.map(detalleBebidaIterator.next()));
+		while(listaDetalleBebidaDTO.iterator().hasNext())
+			listaDetalleBebida.add(bebidaMapper.map(listaDetalleBebidaDTO.iterator().next()));
+		
+		while(detallePlatoIterator.hasNext())
+			listaDetallePlatoDTO.add(platoMapper.map(detallePlatoIterator.next()));
+		while(listaDetallePlatoDTO.iterator().hasNext())
+			listaDetallePlato.add(platoMapper.map(listaDetallePlatoDTO.iterator().next()));
+		
+		ocupacion.setDetalleBebida(listaDetalleBebida);
+		ocupacion.setDetallePlato(listaDetallePlato);
+		
+		return ocupacion;
 	}
 
 }

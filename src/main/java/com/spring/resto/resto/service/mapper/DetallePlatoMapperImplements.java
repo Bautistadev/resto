@@ -6,13 +6,6 @@ import com.spring.resto.resto.entity.DetallePlato;
 
 public class DetallePlatoMapperImplements implements DetallePlatoMapper{
 
-	
-	private PlatoMapper platoMapper;
-	
-	public DetallePlatoMapperImplements(PlatoMapper platoMapper) {
-		super();
-		this.platoMapper = platoMapper;
-	}
 
 	@Override
 	public DetallePlatoDTO map(DetallePlato detallePlato) {
