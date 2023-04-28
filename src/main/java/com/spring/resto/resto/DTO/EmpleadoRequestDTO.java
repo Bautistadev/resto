@@ -3,7 +3,7 @@ package com.spring.resto.resto.DTO;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class PersonaRequestDTO {
+public class EmpleadoRequestDTO {
 	@NotBlank
 	private String nombre;
 	@NotBlank
@@ -13,14 +13,14 @@ public class PersonaRequestDTO {
 	@NotBlank
 	private String password;
 	
-	public PersonaRequestDTO(String nombre, String apellido, Integer dni, String password) {
+	public EmpleadoRequestDTO(String nombre, String apellido, Integer dni, String password) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.password = password;
 	}
-	public PersonaRequestDTO() {
+	public EmpleadoRequestDTO() {
 		super();
 	}
 	public String getNombre() {

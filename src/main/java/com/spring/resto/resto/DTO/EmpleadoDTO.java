@@ -3,7 +3,7 @@ package com.spring.resto.resto.DTO;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class PersonaDTO {
+public class EmpleadoDTO {
 	
 	@NotNull
 	private Long id;
@@ -16,11 +16,11 @@ public class PersonaDTO {
 	@NotNull
 	private Integer dni;
 	
-	public PersonaDTO() {
+	public EmpleadoDTO() {
 		super();
 	}
 
-	public PersonaDTO(@NotNull Long id, @NotBlank String nombre, @NotBlank String apellido, @NotBlank String password,
+	public EmpleadoDTO(@NotNull Long id, @NotBlank String nombre, @NotBlank String apellido, @NotBlank String password,
 			@NotNull Integer dni) {
 		super();
 		this.id = id;

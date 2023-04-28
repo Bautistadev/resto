@@ -9,13 +9,13 @@ public class MesaRequestDTO {
 	@NotBlank
 	private String token;
 	private boolean estado;
-	private persona persona;
+	private Empleado empleado;
 	
-	public MesaRequestDTO(@NotBlank String token, boolean estado, com.spring.resto.resto.entity.persona persona) {
+	public MesaRequestDTO(@NotBlank String token, boolean estado, Empleado empleado) {
 		super();
 		this.token = token;
 		this.estado = estado;
-		this.persona = persona;
+		this.empleado = empleado;
 	}
 	public String getToken() {
 		return token;
@@ -29,15 +29,15 @@ public class MesaRequestDTO {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	public persona getPersona() {
-		return persona;
+	public Empleado getEmpleado() {
+		return this.empleado;
 	}
-	public void setPersona(persona persona) {
-		this.persona = persona;
+	public void setEmpleado(Empleado persona) {
+		this.empleado = persona;
 	}
 	@Override
 	public String toString() {
-		return "MesaRequestDTO [token=" + token + ", estado=" + estado + ", persona=" + persona + "]";
+		return "MesaRequestDTO [token=" + token + ", estado=" + estado + ", empleado=" + empleado + "]";
 	}
 	
 	

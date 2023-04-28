@@ -22,7 +22,7 @@ public class MesaMapperImplements implements MesaMapper {
 		
 		Mesa mesa = new Mesa();
 		mesa.setEstado(mesaDTO.isEstado());
-		mesa.setPersona(mesaDTO.getPersona());
+		mesa.setPersona(mesaDTO.getEmpleado());
 		mesa.setToken(mesaDTO.getToken());
 		
 		return mesa;
@@ -35,7 +35,7 @@ public class MesaMapperImplements implements MesaMapper {
 		Mesa mesa = new Mesa();
 		mesa.setEstado(mesaDTO.isEstado());
 		mesa.setId(mesaDTO.getId());
-		mesa.setPersona(mesaDTO.getPersona());
+		mesa.setPersona(mesaDTO.getEmpleado());
 		mesa.setToken(mesaDTO.getToken());
 		
 		return mesa;

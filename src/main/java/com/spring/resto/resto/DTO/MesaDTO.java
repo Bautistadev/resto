@@ -11,14 +11,14 @@ public class MesaDTO {
 	@NotBlank
 	private String token;
 	private boolean estado;
-	private persona persona;
+	private Empleado empleado;
 	
-	public MesaDTO(Long id, String token, boolean estado, com.spring.resto.resto.entity.persona persona) {
+	public MesaDTO(Long id, String token, boolean estado, Empleado empleado) {
 		super();
 		this.id = id;
 		this.token = token;
 		this.estado = estado;
-		this.persona = persona;
+		this.empleado = empleado;
 	}
 	public MesaDTO() {
 		super();
@@ -41,15 +41,15 @@ public class MesaDTO {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	public persona getPersona() {
-		return persona;
+	public Empleado getEmpleado() {
+		return empleado;
 	}
-	public void setPersona(persona persona) {
-		this.persona = persona;
+	public void setPersona(Empleado empleado) {
+		this.empleado = empleado;
 	}
 	@Override
 	public String toString() {
-		return "MesaDTO [id=" + id + ", token=" + token + ", estado=" + estado + ", persona=" + persona + "]";
+		return "MesaDTO [id=" + id + ", token=" + token + ", estado=" + estado + ", persona=" + empleado + "]";
 	}
 	
 	

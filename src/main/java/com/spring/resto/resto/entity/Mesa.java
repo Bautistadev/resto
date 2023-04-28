@@ -21,19 +21,19 @@ public class Mesa {
 	private boolean estado;
 	
 	@ManyToOne
-	@JoinColumn(name="personaId")
-	private persona persona;
+	@JoinColumn(name="empleadoId")
+	private Empleado empleado;
 	
 	public Mesa() {
 		super();
 	}
 	
-	public Mesa(Long id, String token, boolean estado, com.spring.resto.resto.entity.persona persona) {
+	public Mesa(Long id, String token, boolean estado, Empleado empleado) {
 		super();
 		this.id = id;
 		this.token = token;
 		this.estado = estado;
-		this.persona = persona;
+		this.empleado = empleado;
 	}
 
 
@@ -56,17 +56,17 @@ public class Mesa {
 		this.estado = estado;
 	}
 
-	public persona getPersona() {
-		return persona;
+	public Empleado getPersona() {
+		return this.empleado;
 	}
 
-	public void setPersona(persona persona) {
-		this.persona = persona;
+	public void setPersona(Empleado empleado) {
+		this.empleado= empleado;
 	}
 
 	@Override
 	public String toString() {
-		return "Mesa [id=" + id + ", token=" + token + ", estado=" + estado + ", persona=" + persona + "]";
+		return "Mesa [id=" + id + ", token=" + token + ", estado=" + estado + ", empleado=" + empleado + "]";
 	}
 	
 	

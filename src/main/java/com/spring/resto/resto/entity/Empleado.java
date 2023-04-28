@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "personas")
-public class persona {
+@Table(name = "Empleado")
+public class Empleado {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,13 +27,13 @@ public class persona {
 	@Column(name = "password",nullable = false)
 	private String password;
 
-	public persona(Long id, String nombre) {
+	public Empleado(Long id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 	}
 
-	public persona() {
+	public Empleado() {
 		super();
 	}
 
@@ -52,6 +52,35 @@ public class persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public Integer getDni() {
+		return dni;
+	}
+
+	public void setDni(Integer dni) {
+		this.dni = dni;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
+	@Override
+	public String toString() {
+		return "Empleado [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", password="
+				+ password + "]";
+	}
 	
 }
