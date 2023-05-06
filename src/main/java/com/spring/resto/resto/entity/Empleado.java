@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.spring.resto.resto.security.entity.Rol;
 
 @Entity
 @Table(name = "Empleado")
@@ -14,6 +18,9 @@ public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "userName",nullable = false)
+	private String userName;
 	
 	@Column(name = "nombre",nullable = false)
 	private String nombre;
@@ -26,11 +33,20 @@ public class Empleado {
 	
 	@Column(name = "password",nullable = false)
 	private String password;
+	
+	@ManyToOne
+	@JoinColumn(name = "rolId")
+	private Rol rol;
 
-	public Empleado(Long id, String nombre) {
+	public Empleado(Long id, String userName, String nombre, String apellido, Integer dni, String password, Rol rol) {
 		super();
 		this.id = id;
+		this.userName = userName;
 		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.password = password;
+		this.rol = rol;
 	}
 
 	public Empleado() {
@@ -77,10 +93,28 @@ public class Empleado {
 		this.password = password;
 	}
 	
-	@Override
-	public String toString() {
-		return "Empleado [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", password="
-				+ password + "]";
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
+
+	@Override
+	public String toString() {
+		return "Empleado [id=" + id + ", userName=" + userName + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", dni=" + dni + ", password=" + password + ", rol=" + rol + "]";
+	}
+
+
 }

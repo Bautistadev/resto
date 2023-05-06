@@ -12,10 +12,12 @@ public class EmpleadoMapperImplements implements EmpleadoMapper {
 		EmpleadoDTO empleadoDTO = new EmpleadoDTO();
 		
 		empleadoDTO.setId(empleado.getId());
+		empleadoDTO.setUserName(empleado.getUserName());
 		empleadoDTO.setNombre(empleado.getNombre());
 		empleadoDTO.setApellido(empleado.getApellido());
 		empleadoDTO.setDni(empleado.getDni());
 		empleadoDTO.setPassword(empleado.getPassword());
+		empleadoDTO.setRol(empleado.getRol());
 		
 		return empleadoDTO;
 	}
@@ -26,11 +28,12 @@ public class EmpleadoMapperImplements implements EmpleadoMapper {
 		Empleado empleado = new Empleado();
 		
 		empleado.setId(empleadoDTO.getId());
+		empleado.setUserName(empleadoDTO.getUserName());
 		empleado.setNombre(empleadoDTO.getNombre());
 		empleado.setApellido(empleadoDTO.getApellido());
 		empleado.setDni(empleadoDTO.getDni());
 		empleado.setPassword(empleadoDTO.getPassword());
-		
+		empleado.setRol(empleadoDTO.getRol());
 		return empleado;
 	}
 
@@ -38,12 +41,12 @@ public class EmpleadoMapperImplements implements EmpleadoMapper {
 	public Empleado map(EmpleadoRequestDTO empleadoDTO) {
 		// TODO Auto-generated method stub
 		Empleado empleado = new Empleado();
-
+		empleado.setUserName(empleadoDTO.getUserName());
 		empleado.setNombre(empleadoDTO.getNombre());
 		empleado.setApellido(empleadoDTO.getApellido());
 		empleado.setDni(empleadoDTO.getDni());
 		empleado.setPassword(empleadoDTO.getPassword());
-		
+		empleado.setRol(empleadoDTO.getRol());
 		return empleado;
 	}
 
