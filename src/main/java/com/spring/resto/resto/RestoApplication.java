@@ -15,6 +15,7 @@ import com.spring.resto.resto.service.PlatoService;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.spring.resto.resto"})
 @EnableAutoConfiguration
+
 public class RestoApplication {
 
 	public static void main(String[] args) {
