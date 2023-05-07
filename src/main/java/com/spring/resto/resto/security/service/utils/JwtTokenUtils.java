@@ -1,5 +1,7 @@
 package com.spring.resto.resto.security.service.utils;
 
-public class JwtTokenUtils {
+import java.io.Serializable;
 
+public class JwtTokenUtils implements Serializable{
+	
 }
