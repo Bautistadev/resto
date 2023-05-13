@@ -51,6 +51,11 @@ public class Rol {
 	public String toString() {
 		return "Rol [id=" + id + ", rol=" + rol + "]";
 	}
+
+	public String name() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

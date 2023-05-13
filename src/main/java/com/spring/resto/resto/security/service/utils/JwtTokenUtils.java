@@ -112,7 +112,7 @@ public class JwtTokenUtils implements Serializable{
 		Map<String , Object> claims = new HashMap<>();
 		return this.doGenerateToken(claims, secret, null);
 	}
-	//FUNCION QUE GENERA UN TOKEN CUANDO SE DEBE REFESCAR OTRO QUE EXPIRO
+	//FUNCION QUE GENERA UN TOKEN CUANDO SE DEBE REFRESCAR OTRO QUE EXPIRO
 	public String generateToken(UserDetails userDetails, Map<String,Object> claims, long ExpireTime) {
 		return this.doGenerateToken(claims, secret, ExpireTime);
 	}
