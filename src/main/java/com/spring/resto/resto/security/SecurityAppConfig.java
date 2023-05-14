@@ -7,8 +7,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.spring.resto.resto.repository.EmpleadoRepository;
+import com.spring.resto.resto.security.Repository.RolRepository;
+import com.spring.resto.resto.security.controller.LoginController;
+import com.spring.resto.resto.security.controller.TokenController;
 import com.spring.resto.resto.security.service.JWTService;
+import com.spring.resto.resto.security.service.RolService;
 import com.spring.resto.resto.security.service.UserAuthenticateService;
+import com.spring.resto.resto.security.service.UserDefaultService;
 import com.spring.resto.resto.security.service.UserDetailsServiceImplements;
 import com.spring.resto.resto.security.service.utils.JwtTokenUtils;
 
@@ -33,8 +38,22 @@ public class SecurityAppConfig {
 	}
 	
 	@Bean
+	public TokenController getLogin( UserAuthenticateService userAuthenticateService,JWTService jwtService) {
+		return new LoginController(userAuthenticateService,jwtService);
+	}
+	@Bean
+	public UserDefaultService getUserInitializationService(PasswordEncoder passwordEncoder, 
+			EmpleadoRepository userRepository,RolService roleService) {
+		return new UserDefaultService(userRepository, passwordEncoder,roleService);
+	}
+	@Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+	
+	@Bean 
+	public RolService rolService(RolRepository rolRepository) {
+		return new RolService(rolRepository);
+	}
 
 }
