@@ -63,13 +63,16 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter{
 			//TRAEMOS EL VALOR DEL HEADER, ENVIADA DESDE FRONT
 			String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 			
+			
 			//SI EL HEADER NO ESTA VACIO Y ESTE EMPIEZA CON EL PREFIJO Bearer
 			if(authHeader != null && authHeader.startsWith(BEARER_TOKEN_PREFIX)) {
 				//RETIRAMOS EL PREFIJO Bearer Y DEJAMOS SOLO EL TOKEN
 				jwtToken = authHeader.substring(BEARER_TOKEN_PREFIX.length());
+
 				try {
 					//VALIDAMOS QUE EL TOKEN PASADO ES VALIDO
 					userName = validateToken(jwtToken);
+
 				}catch(RuntimeException e) {
 					exceptionResponse(response,e);
 				}
