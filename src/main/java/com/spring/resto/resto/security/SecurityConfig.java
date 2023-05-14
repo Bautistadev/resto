@@ -58,13 +58,7 @@ public class SecurityConfig {
 		return http.build();
 	 }
 	
-	@Bean
-	public OpenAPI customOpenAPI() {
-	    return new OpenAPI()
-	            .components(new Components().addSecuritySchemes("bearer-jwt",
-	                    new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("Bearer").bearerFormat("JWT")))
-	            .addSecurityItem(new SecurityRequirement().addList("bearer-jwt"));
-	}
+
 
 
  }
