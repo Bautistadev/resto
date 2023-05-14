@@ -104,17 +104,17 @@ public class JwtTokenUtils implements Serializable{
 		
 		//COMO ES LA PRIMERA GENERACION DE TOKEN, EL MAPA ESTA VACIO
 		Map<String , Object> claims = new HashMap<>();
-		return this.doGenerateToken(claims, secret, ExpireTime);
+		return this.doGenerateToken(claims, userDetails.getUsername(), ExpireTime);
 	}
 	//FUNCION QUE GENERA EL TOKEN SIN TIEMPO DE EXPIRACION
 	public String generateToken(UserDetails userDetails) {
 		//COMO ES LA PRIMERA GENERACION DE TOKEN, EL MAPA ESTA VACIO Y ADEMAS ESTE TOKEN NO YIENE FECHA DE EXPIRACION
 		Map<String , Object> claims = new HashMap<>();
-		return this.doGenerateToken(claims, secret, null);
+		return this.doGenerateToken(claims, userDetails.getUsername(), null);
 	}
 	//FUNCION QUE GENERA UN TOKEN CUANDO SE DEBE REFRESCAR OTRO QUE EXPIRO
 	public String generateToken(UserDetails userDetails, Map<String,Object> claims, long ExpireTime) {
-		return this.doGenerateToken(claims, secret, ExpireTime);
+		return this.doGenerateToken(claims, userDetails.getUsername(), ExpireTime);
 	}
 	
 	
@@ -143,9 +143,11 @@ public class JwtTokenUtils implements Serializable{
 	}
 	
 	public Boolean validateToken(String token,UserDetails userDetails) {
+		
 		final String userName = this.getUserNameFromToken(token);
+		
 		//SI EL TOKEN NO ESTA EXPIRADO Y EL NOMBRE DE USUAIRO ES IGUAL AL DEL CLAIM DEL TOKEN
-		return (userName.equals(userDetails.getUsername()) && this.isTokenExpired(token));
+		return (userName.equals(userDetails.getUsername()) && !this.isTokenExpired(token));
 	}
 	
 }
