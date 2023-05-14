@@ -17,6 +17,7 @@ public class UserDetailsServiceImplements implements UserDetailsService{
 
 	private EmpleadoRepository empleadoRepository;
 	
+	
 	public UserDetailsServiceImplements(EmpleadoRepository empleadoRepository) {
 		super();
 		this.empleadoRepository = empleadoRepository;
@@ -37,6 +38,8 @@ public class UserDetailsServiceImplements implements UserDetailsService{
 	private Empleado findByUserName(final String userName) {
 		//BUSCAMOS AL EMPLEADO MEDIANTE SU NOMBRE DE USUARIO
 		Optional<Empleado> optEmpleado = this.empleadoRepository.findByUserName(userName);
+		
+		System.out.println("USUARIO: "+ userName);
 		
 		if(optEmpleado.isEmpty()) {
 			throw new RuntimeException("usuario no registrado");
