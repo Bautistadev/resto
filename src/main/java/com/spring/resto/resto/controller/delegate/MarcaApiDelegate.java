@@ -16,7 +16,7 @@ import com.spring.resto.resto.DTO.MarcaDTO;
 import com.spring.resto.resto.DTO.MarcaRequestDTO;
 
 @RestController
-@RequestMapping("/Marca")
+@RequestMapping("${api.basePath}/Marca")
 public interface MarcaApiDelegate {
 	
 	@PostMapping("/add")

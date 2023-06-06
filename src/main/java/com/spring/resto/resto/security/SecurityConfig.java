@@ -49,7 +49,8 @@ public class SecurityConfig {
 			@Value("${api.basePath}") String basePath) throws Exception {
 		http.csrf().disable();
 	    http.authorizeRequests().antMatchers(basePath + "/security/login").permitAll();
-	    http.authorizeRequests().antMatchers("/PlatoApi/**").hasAnyRole("ADMIN");
+	    http.authorizeRequests().antMatchers(basePath+"/PlatoApi/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+	    http.authorizeRequests().antMatchers(basePath+"/Cliente/**").hasAnyRole("ADMIN");
 	    http.authorizeRequests().antMatchers("/swagger-ui/**").permitAll();
 	    http.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
 	    http.authorizeRequests().anyRequest().permitAll();

@@ -22,10 +22,6 @@ public class SwaggerConfig {
 	@Bean
 	public OpenAPI customSecurityOpenAPI() {
 		
-		Contact contacto1 = new Contact().name("Correo del contacto: Bautista Basilio").email("batubasilio@hotmail.com");
-		Contact contacto2 = new Contact().name("Correo del contacto: Franco Borsella").email("fborsella1@gmail.com");
-		Contact contacto3 = new Contact().name("Correo del contacto: Tomas Novelino").email("mailto:toto_lp01@hotmail.com");
-		
 	    return new OpenAPI()
 	            .components(new Components().addSecuritySchemes("bearer-jwt",
 	                    new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("Bearer").bearerFormat("JWT")))

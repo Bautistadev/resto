@@ -16,7 +16,7 @@ import com.spring.resto.resto.DTO.OcupacionDTO;
 import com.spring.resto.resto.DTO.OcupacionRequestDTO;
 
 @RestController
-@RequestMapping("/Ocupacion")
+@RequestMapping("${api.basePath}/Ocupacion")
 public interface OcupacionApiDelegate {
 	
 	@PostMapping("/add")

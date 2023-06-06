@@ -16,7 +16,7 @@ import com.spring.resto.resto.DTO.EmpleadoDTO;
 import com.spring.resto.resto.DTO.EmpleadoRequestDTO;
 
 @RestController
-@RequestMapping("/Empleado")
+@RequestMapping("${api.basePath}/Empleado")
 public interface EmpleadoApiDelegate {
 	
 	@PostMapping("/add")

@@ -17,7 +17,7 @@ import com.spring.resto.resto.DTO.*;
 import com.spring.resto.resto.service.*;
 
 @RestController
-@RequestMapping("/DetalleBebidaController")
+@RequestMapping("${api.basePath}/DetalleBebidaController")
 public interface DetalleBebidaApiDelegate {
 	
 	@PostMapping("/add")

@@ -16,7 +16,7 @@ import com.spring.resto.resto.DTO.MesaDTO;
 import com.spring.resto.resto.DTO.MesaRequestDTO;
 
 @RestController
-@RequestMapping("/Mesa")
+@RequestMapping("${api.basePath}/Mesa")
 public interface MesaApiDelegate {
 
 	@PostMapping("/add")

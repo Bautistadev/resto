@@ -17,7 +17,7 @@ import com.spring.resto.resto.DTO.DetallePlatoRequestDTO;
 
 
 @RestController
-@RequestMapping("/DetallePlatoController")
+@RequestMapping("${api.basePath}/DetallePlatoController")
 public interface DetallePlatoApiDelegate {
 	
 	@PostMapping("/add")

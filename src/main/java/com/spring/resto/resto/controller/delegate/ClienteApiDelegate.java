@@ -16,7 +16,7 @@ import com.spring.resto.resto.DTO.ClienteDTO;
 import com.spring.resto.resto.DTO.ClienteRequestDTO;
 
 @RestController
-@RequestMapping("/Cliente")
+@RequestMapping("${api.basePath}/Cliente")
 public interface ClienteApiDelegate {
 	
 	@PostMapping("/add")

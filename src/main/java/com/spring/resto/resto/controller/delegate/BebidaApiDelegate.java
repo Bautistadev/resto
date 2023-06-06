@@ -19,7 +19,7 @@ import com.spring.resto.resto.DTO.PlatoDTO;
 import com.spring.resto.resto.DTO.PlatoRequestDTO;
 
 @RestController
-@RequestMapping("/BebidaApi")
+@RequestMapping("${api.basePath}/Bebida")
 public interface BebidaApiDelegate {
 	
 	@GetMapping("/retriveAllBebida")
