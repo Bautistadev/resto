@@ -23,10 +23,13 @@ public class BebidaDTO {
 	private Date dateDeleted;
 	
 	private Marca marca;
+	
+	@NotNull
+	private Float precio;
 
 	
 	public BebidaDTO(@NotBlank Long id, @NotBlank String nombre, @NotBlank String descripcion, @NotNull Date fechaAlta,
-			Date fechaBaja, Marca marca) {
+			Date fechaBaja, Marca marca, @NotNull Float precio) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -34,6 +37,7 @@ public class BebidaDTO {
 		this.dateCreated = fechaAlta;
 		this.dateDeleted = fechaBaja;
 		this.marca = marca;
+		this.precio = precio;
 	}
 
 	public BebidaDTO() {
@@ -90,17 +94,22 @@ public class BebidaDTO {
 	public void setDateDeleted(Date fechaBaja) {
 		this.dateDeleted = fechaBaja;
 	}
+	
+	
+
+	public Float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Float precio) {
+		this.precio = precio;
+	}
 
 	@Override
 	public String toString() {
-		return "BebidaDTO [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechaAlta="
-				+ dateCreated + ", fechaBaja=" + dateDeleted + ", marca=" + marca + "]";
+		return "BebidaDTO [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", dateCreated="
+				+ dateCreated + ", dateDeleted=" + dateDeleted + ", marca=" + marca + ", precio=" + precio + "]";
 	}
 
-
-	
-	
-	
-	
 
 }

@@ -17,4 +17,7 @@ public interface TokenController {
 	
 	@PostMapping("/login")
 	public Map<String,String> login(@Valid @RequestBody Login login);
+	
+	@PostMapping("/validateToken")
+	public boolean validateToken(@Valid @RequestBody String token);
 }

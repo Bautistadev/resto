@@ -17,6 +17,7 @@ public class BebidaMapperImplements implements BebidaMapper{
 		map.setDescripcion(bebidaDTO.getDescripcion());
 		map.setMarca(bebidaDTO.getMarca());
 		map.setdateCreated(bebidaDTO.getDateCreated());
+		map.setPrecio(bebidaDTO.getPrecio());
 		if(bebidaDTO.getDateDeleted() != null)
 			map.setDateDeleted(bebidaDTO.getDateDeleted());
 		
@@ -32,6 +33,7 @@ public class BebidaMapperImplements implements BebidaMapper{
 		map.setDescripcion(bebidaDTO.getDescripcion());
 		map.setMarca(bebidaDTO.getMarca());
 		map.setdateCreated(new Date());
+		map.setPrecio(bebidaDTO.getPrecio());
 		
 		return map;
 	}
@@ -46,6 +48,7 @@ public class BebidaMapperImplements implements BebidaMapper{
 		map.setDescripcion(bebida.getDescripcion());
 		map.setMarca(bebida.getMarca());
 		map.setDateCreated(bebida.getDateCreated());
+		map.setPrecio(bebida.getPrecio());
 		if(bebida.getDateDeleted() != null)
 			map.setDateDeleted(bebida.getDateDeleted());
 		

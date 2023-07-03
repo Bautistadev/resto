@@ -15,14 +15,17 @@ public class BebidaRequestDTO {
 	@NotBlank
 	private String descripcion;
 	
+	@NotNull
+	private Float precio;
 	
 	private Marca marca;
 
-	public BebidaRequestDTO(@NotBlank String nombre, @NotBlank String descripcion, Marca marca) {
+	public BebidaRequestDTO(@NotBlank String nombre, @NotBlank String descripcion, Marca marca, @NotNull Float precio) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.marca = marca;
+		this.precio = precio;
 	}
 
 	public BebidaRequestDTO() {
@@ -54,13 +57,21 @@ public class BebidaRequestDTO {
 		this.marca = marca;
 	}
 
+	public Float getPrecio() {
+		return precio;
+	}
 
+	public void setPrecio(Float precio) {
+		this.precio = precio;
+	}
 
 	@Override
 	public String toString() {
-		return "BebidaRequestDTO [nombre=" + nombre + ", descripcion=" + descripcion + ", marca=" + marca + "]";
+		return "BebidaRequestDTO [nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio + ", marca="
+				+ marca + "]";
 	}
-
+	
+	
 	
 
 	

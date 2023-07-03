@@ -25,8 +25,12 @@ public class UserAuthenticateService {
 	public Map<String,String>login(String userName,String Password){
 		UserDetails optUser = this.userDetailsService.loadUserByUsername(userName);
 		
+		System.out.println(Password);
+		System.out.println(optUser.getPassword());
+		
 		//SI LAS CLAVES NO SON IGUALES, TIRAMOS UNA EXCEPCION
 		if(!this.passwordEncoder.matches(Password, optUser.getPassword())) {
+			System.out.println(Password);
 			throw new RuntimeException("las claves no son iguales");
 		}
 		

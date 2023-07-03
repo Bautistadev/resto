@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.resto.resto.security.custom.CustomAuthorizationFilter;
@@ -47,10 +49,12 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain getSecurityFilterChain(HttpSecurity http, CustomAuthorizationFilter customAuthorizationFilter,
 			@Value("${api.basePath}") String basePath) throws Exception {
-		http.csrf().disable();
-	    http.authorizeRequests().antMatchers(basePath + "/security/login").permitAll();
-	    http.authorizeRequests().antMatchers(basePath+"/PlatoApi/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+		http.cors().and().csrf().disable();
+	    http.authorizeRequests().antMatchers(basePath + "/security/**").permitAll();
+	    http.authorizeRequests().antMatchers(basePath + "/Empleado/**").hasAnyAuthority("ROLE_ADMIN");
+	    http.authorizeRequests().antMatchers(basePath+"/Plato/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
 	    http.authorizeRequests().antMatchers(basePath+"/Cliente/**").hasAnyRole("ADMIN");
+	    http.authorizeRequests().antMatchers(basePath+"/Hora/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
 	    http.authorizeRequests().antMatchers("/swagger-ui/**").permitAll();
 	    http.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
 	    http.authorizeRequests().anyRequest().permitAll();
@@ -59,6 +63,16 @@ public class SecurityConfig {
 		return http.build();
 	 }
 	
+	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("http://localhost:8100/").allowedMethods("*");
+			}
+		};
+    	
+    }
 
 
 

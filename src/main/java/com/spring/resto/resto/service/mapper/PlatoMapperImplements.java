@@ -19,6 +19,8 @@ public class PlatoMapperImplements implements PlatoMapper{
 		response.setNombre(platoDTO.getNombre());
 		response.setDescripcion(platoDTO.getDescripcion());
 		response.setDateCreated(platoDTO.getDateCreated());
+		response.setCategoria(platoDTO.getCategoria());
+		response.setPrecio(platoDTO.getPrecio());
 		
 		if(platoDTO.getDateDeleted() != null)
 			response.setDateDeleted(platoDTO.getDateDeleted());
@@ -34,6 +36,8 @@ public class PlatoMapperImplements implements PlatoMapper{
 		response.setNombre(plato.getNombre().toUpperCase());
 		response.setDescripcion(plato.getDescripcion());
 		response.setDateCreated(new Date());
+		response.setCategoria(plato.getCategoria());
+		response.setPrecio(plato.getPrecio());
 		
 		return response;
 	}
@@ -41,11 +45,15 @@ public class PlatoMapperImplements implements PlatoMapper{
 	@Override
 	public PlatoDTO map(Plato plato) {
 		// TODO Auto-generated method stub
+		
 		PlatoDTO response = new PlatoDTO();
 		response.setId(plato.getId());
 		response.setNombre(plato.getNombre());
 		response.setDescripcion(plato.getDescripcion());
 		response.setDateCreated(plato.getDateCreated());
+		response.setCategoria(plato.getCategoria());
+		response.setPrecio(plato.getPrecio());
+		
 		if(plato.getDateDeleted() != null)
 			response.setDateDeleted(plato.getDateDeleted());
 		

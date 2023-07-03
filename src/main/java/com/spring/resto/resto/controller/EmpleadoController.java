@@ -21,6 +21,7 @@ public class EmpleadoController implements EmpleadoApiDelegate {
 	@Override
 	public EmpleadoDTO create(@Valid EmpleadoRequestDTO empleadoDTO) {
 		// TODO Auto-generated method stub
+		System.out.println(empleadoDTO.getRol().toString());
 		return this.empleadoService.create(empleadoDTO);
 	}
 

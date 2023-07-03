@@ -23,6 +23,9 @@ public class RestoApplication  implements CommandLineRunner {
 	public static void main(String[] args){
 		ConfigurableApplicationContext ctx =  SpringApplication.run(RestoApplication.class, args);
 		
+	
+		
+		
 	}
 	@Autowired
 	private ApplicationContext context;

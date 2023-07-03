@@ -7,6 +7,7 @@ import com.spring.resto.resto.controller.ClienteController;
 import com.spring.resto.resto.controller.DetalleBebidaController;
 import com.spring.resto.resto.controller.DetallePlatoController;
 import com.spring.resto.resto.controller.EmpleadoController;
+import com.spring.resto.resto.controller.HoraController;
 import com.spring.resto.resto.controller.MarcaController;
 import com.spring.resto.resto.controller.MesaController;
 import com.spring.resto.resto.controller.OcupacionController;
@@ -33,6 +34,7 @@ import com.spring.resto.resto.service.ClienteService;
 import com.spring.resto.resto.service.DetalleBebidaService;
 import com.spring.resto.resto.service.DetallePlatoService;
 import com.spring.resto.resto.service.EmpleadoService;
+import com.spring.resto.resto.service.HoraService;
 import com.spring.resto.resto.service.MarcaService;
 import com.spring.resto.resto.service.MesaService;
 import com.spring.resto.resto.service.OcupacionService;
@@ -187,4 +189,15 @@ public class config {
 	public EmpleadoApiDelegate getEmpleadoController(EmpleadoService empleadoService) {
 		return new EmpleadoController(empleadoService);
 	}
+	
+	@Bean
+	public HoraService getHoraService() {
+		return new HoraService();
+	}
+	
+	@Bean
+	public HoraController getHoraController(HoraService horaService) {
+		return new HoraController(horaService);
+	}
+	
 }

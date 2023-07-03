@@ -10,6 +10,7 @@ public class MesaMapperImplements implements MesaMapper {
 	public MesaDTO map(Mesa mesa) {
 		// TODO Auto-generated method stub
 		MesaDTO mesaDTO = new MesaDTO();
+		mesaDTO.setId(mesa.getId());
 		mesaDTO.setEstado(mesa.isEstado());
 		mesaDTO.setPersona(mesa.getPersona());
 		mesaDTO.setToken(mesa.getToken());
@@ -24,6 +25,7 @@ public class MesaMapperImplements implements MesaMapper {
 		mesa.setEstado(mesaDTO.isEstado());
 		mesa.setPersona(mesaDTO.getEmpleado());
 		mesa.setToken(mesaDTO.getToken());
+		
 		
 		return mesa;
 	}

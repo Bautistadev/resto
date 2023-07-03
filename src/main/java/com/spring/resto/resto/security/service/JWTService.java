@@ -55,4 +55,11 @@ public class JWTService {
 		
 		return tokens;
 	}
+	
+	public Boolean validateToken(String Token) {
+		String userName = this.jwtTokenUtil.getUserNameFromToken(Token);
+		UserDetails user = this.userDeatilsService.loadUserByUsername(userName);
+		
+		return this.jwtTokenUtil.validateToken(Token, user);
+	}
 }

@@ -34,4 +34,15 @@ public class LoginController implements TokenController{
 		return tokens;
 	}
 
+
+	@Override
+	public boolean validateToken(@Valid String token) {
+		// TODO Auto-generated method stub
+		try {
+		return this.jwtService.validateToken(token);
+		}catch(Exception e) {
+			return false;
+		}
+	}
+
 }

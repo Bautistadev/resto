@@ -46,6 +46,7 @@ public class SecurityAppConfig {
 			EmpleadoRepository userRepository,RolService roleService) {
 		return new UserDefaultService(userRepository, passwordEncoder,roleService);
 	}
+	
 	@Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

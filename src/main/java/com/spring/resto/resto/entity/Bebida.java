@@ -31,6 +31,9 @@ public class Bebida {
 	@Column(name = "fechaBaja",nullable = true)
 	private Date dateDeleted;
 	
+	@Column(name = "precio",nullable =false)
+	private Float precio;
+	
 	@ManyToOne
 	@JoinColumn(name = "marcaId")
 	private Marca marca;
@@ -41,7 +44,7 @@ public class Bebida {
 	}
 	
 
-	public Bebida(Long id, String nombre, String descripcion, Date fechaAlta, Date fechaBaja, Marca marca) {
+	public Bebida(Long id, String nombre, String descripcion, Date fechaAlta, Date fechaBaja, Marca marca, Float precio) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -49,6 +52,7 @@ public class Bebida {
 		this.dateCreated = fechaAlta;
 		this.dateDeleted = fechaBaja;
 		this.marca = marca;
+		this.precio = precio;
 	}
 
 
@@ -104,13 +108,32 @@ public class Bebida {
 	public void setDateDeleted(Date fechaBaja) {
 		this.dateDeleted = fechaBaja;
 	}
+	
+	
+
+	public Float getPrecio() {
+		return precio;
+	}
+
+
+	public void setPrecio(Float precio) {
+		this.precio = precio;
+	}
+
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Bebida [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechaAlta=" + dateCreated
-				+ ", fechaBaja=" + dateDeleted + ", marca=" + marca + "]";
+		return "Bebida [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", dateCreated="
+				+ dateCreated + ", dateDeleted=" + dateDeleted + ", precio=" + precio + ", marca=" + marca + "]";
 	}
+
+
+	
 
 	
 	

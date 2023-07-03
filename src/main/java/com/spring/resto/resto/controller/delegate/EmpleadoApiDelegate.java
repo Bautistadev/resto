@@ -22,7 +22,7 @@ public interface EmpleadoApiDelegate {
 	@PostMapping("/add")
 	public EmpleadoDTO create(@Valid @RequestBody EmpleadoRequestDTO empleadoDTO);
 
-	@PutMapping("/add")
+	@PutMapping("/update")
 	public EmpleadoDTO update(@Valid @RequestBody EmpleadoDTO empleadoDTO);
 	
 	@GetMapping("/retrive/{id}")

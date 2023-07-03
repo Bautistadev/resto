@@ -17,7 +17,7 @@ public class EmpleadoRequestDTO {
 	private Integer dni;
 	@NotBlank
 	private String password;
-	@NotBlank
+	@NotNull
 	private Rol rol;
 	
 	public EmpleadoRequestDTO(@NotBlank String userName, @NotBlank String nombre, @NotBlank String apellido,
