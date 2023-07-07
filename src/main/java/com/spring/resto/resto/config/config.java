@@ -7,6 +7,7 @@ import com.spring.resto.resto.controller.ClienteController;
 import com.spring.resto.resto.controller.DetalleBebidaController;
 import com.spring.resto.resto.controller.DetallePlatoController;
 import com.spring.resto.resto.controller.EmpleadoController;
+import com.spring.resto.resto.controller.GeolocalizacionController;
 import com.spring.resto.resto.controller.HoraController;
 import com.spring.resto.resto.controller.MarcaController;
 import com.spring.resto.resto.controller.MesaController;
@@ -16,6 +17,7 @@ import com.spring.resto.resto.controller.delegate.ClienteApiDelegate;
 import com.spring.resto.resto.controller.delegate.DetalleBebidaApiDelegate;
 import com.spring.resto.resto.controller.delegate.DetallePlatoApiDelegate;
 import com.spring.resto.resto.controller.delegate.EmpleadoApiDelegate;
+import com.spring.resto.resto.controller.delegate.GeolocalizacionApiDelegate;
 import com.spring.resto.resto.controller.delegate.MarcaApiDelegate;
 import com.spring.resto.resto.controller.delegate.MesaApiDelegate;
 import com.spring.resto.resto.controller.delegate.OcupacionApiDelegate;
@@ -25,6 +27,7 @@ import com.spring.resto.resto.repository.ClienteRepository;
 import com.spring.resto.resto.repository.DetalleBebidaRepository;
 import com.spring.resto.resto.repository.DetallePlatoRepository;
 import com.spring.resto.resto.repository.EmpleadoRepository;
+import com.spring.resto.resto.repository.GeolocalizacionRepository;
 import com.spring.resto.resto.repository.MarcaRepository;
 import com.spring.resto.resto.repository.MesaRepository;
 import com.spring.resto.resto.repository.OcupacionRepository;
@@ -34,6 +37,7 @@ import com.spring.resto.resto.service.ClienteService;
 import com.spring.resto.resto.service.DetalleBebidaService;
 import com.spring.resto.resto.service.DetallePlatoService;
 import com.spring.resto.resto.service.EmpleadoService;
+import com.spring.resto.resto.service.GeolocalizacionService;
 import com.spring.resto.resto.service.HoraService;
 import com.spring.resto.resto.service.MarcaService;
 import com.spring.resto.resto.service.MesaService;
@@ -49,6 +53,8 @@ import com.spring.resto.resto.service.mapper.DetallePlatoMapper;
 import com.spring.resto.resto.service.mapper.DetallePlatoMapperImplements;
 import com.spring.resto.resto.service.mapper.EmpleadoMapper;
 import com.spring.resto.resto.service.mapper.EmpleadoMapperImplements;
+import com.spring.resto.resto.service.mapper.GeolocalizacionMapper;
+import com.spring.resto.resto.service.mapper.GeolocalizacionMapperImplemets;
 import com.spring.resto.resto.service.mapper.MarcaMapper;
 import com.spring.resto.resto.service.mapper.MarcaMapperImplements;
 import com.spring.resto.resto.service.mapper.MesaMapper;
@@ -198,6 +204,21 @@ public class config {
 	@Bean
 	public HoraController getHoraController(HoraService horaService) {
 		return new HoraController(horaService);
+	}
+	
+	@Bean 
+	public GeolocalizacionMapper getGeolocalizacionMapper() {
+		return new GeolocalizacionMapperImplemets();
+	}
+	
+	@Bean
+	public GeolocalizacionService getGeolocalizacionService( GeolocalizacionMapper geolocalizacionMapper,GeolocalizacionRepository geolocalizacionRepository) {
+		return new GeolocalizacionService(geolocalizacionMapper,geolocalizacionRepository);
+	}
+	
+	@Bean 
+	public GeolocalizacionApiDelegate getGeolocalizacionController(GeolocalizacionService geoService) {
+		return new GeolocalizacionController(geoService);
 	}
 	
 }

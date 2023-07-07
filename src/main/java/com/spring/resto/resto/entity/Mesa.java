@@ -27,16 +27,21 @@ public class Mesa {
 	@JoinColumn(name="empleadoId")
 	private Empleado empleado;
 	
+	@ManyToOne
+	@JoinColumn(name="GeoId")
+	private Geolocalizacion  geolocalizacion;
+	
 	public Mesa() {
 		super();
 	}
 	
-	public Mesa(Long id, String token, boolean estado, Empleado empleado) {
+	public Mesa(Long id, String token, boolean estado, Empleado empleado , Geolocalizacion geolocalizacion) {
 		super();
 		this.id = id;
 		this.token = token;
 		this.estado = estado;
 		this.empleado = empleado;
+		this.geolocalizacion = geolocalizacion;
 	}
 
 
@@ -67,10 +72,29 @@ public class Mesa {
 		this.empleado= empleado;
 	}
 
+	public Empleado getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
+
+	public Geolocalizacion getGeolocalizacion() {
+		return geolocalizacion;
+	}
+
+	public void setGeolocalizacion(Geolocalizacion geolocalizacion) {
+		this.geolocalizacion = geolocalizacion;
+	}
+
 	@Override
 	public String toString() {
-		return "Mesa [id=" + id + ", token=" + token + ", estado=" + estado + ", empleado=" + empleado + "]";
+		return "Mesa [id=" + id + ", token=" + token + ", estado=" + estado + ", empleado=" + empleado
+				+ ", geolocalizacion=" + geolocalizacion + "]";
 	}
+
+	
 	
 	
 	
