@@ -31,4 +31,14 @@ public interface MesaApiDelegate {
 	@GetMapping("/retriveAll")
 	public List<MesaDTO> retriveAll();
 	
+	
+	@GetMapping("/retriveMesaToken/{id}")
+	public String getMesaToken(@PathVariable Long id);
+	
+	@GetMapping("/retriveMesaByToken/{token}")
+	public MesaDTO getMesaByToken(@PathVariable String token);
+	
+	@PostMapping("/dejarMesa")
+	public void dejarMesa(@Valid @RequestBody Long id);
+	
 }

@@ -1,5 +1,6 @@
 package com.spring.resto.resto.service.mapper;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,37 +30,15 @@ public class OcupacionMapperImplements implements OcupacionMapper{
 	public OcupacionDTO map(Ocupacion ocupacion) throws Exception {
 		// TODO Auto-generated method stub
 		OcupacionDTO ocupacionDTO = new OcupacionDTO();
-		
-		//---------------------BEBIDAS-----------------------//
-		Iterable<DetalleBebida> detalleBebida = ocupacion.getDetalleBebida();
-		Iterator<DetalleBebida> detalleBebidaIterator = detalleBebida.iterator();
-		List<DetalleBebidaDTO> listaDetalleBebidaDTO = new ArrayList<>();
-		List<DetalleBebida> listaDetalleBebida = new ArrayList<>();
-		
-		//---------------------PLATOS------------------------//
-		Iterable<DetallePlato> detallePlato = ocupacion.getDetallePlato();
-		Iterator<DetallePlato> detallePlatoIterator = detallePlato.iterator();
-		List<DetallePlatoDTO> listaDetallePlatoDTO = new ArrayList<>();
-		List<DetallePlato> listaDetallePlato = new ArrayList<>();
-		
 		ocupacionDTO.setId(ocupacion.getId());
 		ocupacionDTO.setInicio(ocupacion.getInicio());
+		ocupacionDTO.setMesa(ocupacion.getMesa());
 		
 		if(ocupacion.getFin() != null)
 			ocupacionDTO.setFin(ocupacion.getFin());
 		
-		while(detalleBebidaIterator.hasNext())
-			listaDetalleBebidaDTO.add(bebidaMapper.map(detalleBebidaIterator.next()));
-		while(listaDetalleBebidaDTO.iterator().hasNext())
-			listaDetalleBebida.add(bebidaMapper.map(listaDetalleBebidaDTO.iterator().next()));
-			
-		while(detallePlatoIterator.hasNext())
-			listaDetallePlatoDTO.add(platoMapper.map(detallePlatoIterator.next()));
-		while(listaDetallePlatoDTO.iterator().hasNext())
-			listaDetallePlato.add(platoMapper.map(listaDetallePlatoDTO.iterator().next()));
-		
-		ocupacionDTO.setDetalleBebida(listaDetalleBebida);
-		ocupacionDTO.setDetallePlato(listaDetallePlato);
+		ocupacionDTO.setDetalleBebida(ocupacion.getDetalleBebida());
+		ocupacionDTO.setDetallePlato(ocupacion.getDetallePlato());
 		
 		return ocupacionDTO;
 	}
@@ -70,37 +49,15 @@ public class OcupacionMapperImplements implements OcupacionMapper{
 		
 		Ocupacion ocupacion = new Ocupacion();
 		
-		//---------------------BEBIDAS-----------------------//
-		Iterable<DetalleBebida> detalleBebida = ocupacionDTO.getDetalleBebida(); 
-		Iterator<DetalleBebida> detalleBebidaIterator = detalleBebida.iterator();
-		List<DetalleBebidaDTO> listaDetalleBebidaDTO = new ArrayList<>();
-		List<DetalleBebida> listaDetalleBebida = new ArrayList<>();
-		
-		//---------------------PLATOS------------------------//
-		Iterable<DetallePlato> detallePlato = ocupacionDTO.getDetallePlato();
-		Iterator<DetallePlato> detallePlatoIterator = detallePlato.iterator();
-		List<DetallePlatoDTO> listaDetallePlatoDTO = new ArrayList<>();
-		List<DetallePlato> listaDetallePlato = new ArrayList<>();
-		
-		
+
 		ocupacion.setId(ocupacionDTO.getId());
 		ocupacion.setInicio(ocupacionDTO.getInicio());
+		ocupacion.setMesa(ocupacionDTO.getMesa());
 		
 		if(ocupacionDTO.getFin() != null)
 			ocupacion.setFin(ocupacionDTO.getFin());
-		
-		while(detalleBebidaIterator.hasNext())
-			listaDetalleBebidaDTO.add(bebidaMapper.map(detalleBebidaIterator.next()));
-		while(listaDetalleBebidaDTO.iterator().hasNext())
-			listaDetalleBebida.add(bebidaMapper.map(listaDetalleBebidaDTO.iterator().next()));
-		
-		while(detallePlatoIterator.hasNext())
-			listaDetallePlatoDTO.add(platoMapper.map(detallePlatoIterator.next()));
-		while(listaDetallePlatoDTO.iterator().hasNext())
-			listaDetallePlato.add(platoMapper.map(listaDetallePlatoDTO.iterator().next()));
-		
-		ocupacion.setDetalleBebida(listaDetalleBebida);
-		ocupacion.setDetallePlato(listaDetallePlato);
+		ocupacion.setDetalleBebida(ocupacionDTO.getDetalleBebida());
+		ocupacion.setDetallePlato(ocupacionDTO.getDetallePlato());
 		
 		return ocupacion;
 	}
@@ -110,36 +67,13 @@ public class OcupacionMapperImplements implements OcupacionMapper{
 		// TODO Auto-generated method stub
 		Ocupacion ocupacion = new Ocupacion();
 		
-		//---------------------BEBIDAS-----------------------//
-		Iterable<DetalleBebida> detalleBebida = ocupacionDTO.getDetalleBebida(); 
-		Iterator<DetalleBebida> detalleBebidaIterator = detalleBebida.iterator();
-		List<DetalleBebidaDTO> listaDetalleBebidaDTO = new ArrayList<>();
-		List<DetalleBebida> listaDetalleBebida = new ArrayList<>();
 		
-		//---------------------PLATOS------------------------//
-		Iterable<DetallePlato> detallePlato = ocupacionDTO.getDetallePlato();
-		Iterator<DetallePlato> detallePlatoIterator = detallePlato.iterator();
-		List<DetallePlatoDTO> listaDetallePlatoDTO = new ArrayList<>();
-		List<DetallePlato> listaDetallePlato = new ArrayList<>();
+		ocupacion.setInicio(LocalDateTime.now());
+		ocupacion.setMesa(ocupacionDTO.getMesa());
 		
-		ocupacion.setInicio(ocupacionDTO.getInicio());
+
 		
-		if(ocupacionDTO.getFin() != null)
-			ocupacion.setFin(ocupacionDTO.getFin());
-		
-		while(detalleBebidaIterator.hasNext())
-			listaDetalleBebidaDTO.add(bebidaMapper.map(detalleBebidaIterator.next()));
-		while(listaDetalleBebidaDTO.iterator().hasNext())
-			listaDetalleBebida.add(bebidaMapper.map(listaDetalleBebidaDTO.iterator().next()));
-		
-		while(detallePlatoIterator.hasNext())
-			listaDetallePlatoDTO.add(platoMapper.map(detallePlatoIterator.next()));
-		while(listaDetallePlatoDTO.iterator().hasNext())
-			listaDetallePlato.add(platoMapper.map(listaDetallePlatoDTO.iterator().next()));
-		
-		ocupacion.setDetalleBebida(listaDetalleBebida);
-		ocupacion.setDetallePlato(listaDetallePlato);
-		
+
 		return ocupacion;
 	}
 

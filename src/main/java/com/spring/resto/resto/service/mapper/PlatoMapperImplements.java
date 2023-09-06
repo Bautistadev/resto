@@ -1,6 +1,9 @@
 package com.spring.resto.resto.service.mapper;
 
+import java.io.IOException;
 import java.util.Date;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.resto.resto.DTO.PlatoDTO;
 import com.spring.resto.resto.DTO.PlatoRequestDTO;
@@ -21,6 +24,7 @@ public class PlatoMapperImplements implements PlatoMapper{
 		response.setDateCreated(platoDTO.getDateCreated());
 		response.setCategoria(platoDTO.getCategoria());
 		response.setPrecio(platoDTO.getPrecio());
+
 		
 		if(platoDTO.getDateDeleted() != null)
 			response.setDateDeleted(platoDTO.getDateDeleted());
@@ -39,6 +43,9 @@ public class PlatoMapperImplements implements PlatoMapper{
 		response.setCategoria(plato.getCategoria());
 		response.setPrecio(plato.getPrecio());
 		
+
+	
+
 		return response;
 	}
 
@@ -53,6 +60,7 @@ public class PlatoMapperImplements implements PlatoMapper{
 		response.setDateCreated(plato.getDateCreated());
 		response.setCategoria(plato.getCategoria());
 		response.setPrecio(plato.getPrecio());
+
 		
 		if(plato.getDateDeleted() != null)
 			response.setDateDeleted(plato.getDateDeleted());

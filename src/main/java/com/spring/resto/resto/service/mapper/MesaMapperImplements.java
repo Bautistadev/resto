@@ -14,6 +14,7 @@ public class MesaMapperImplements implements MesaMapper {
 		mesaDTO.setEstado(mesa.isEstado());
 		mesaDTO.setPersona(mesa.getPersona());
 		mesaDTO.setToken(mesa.getToken());
+		mesaDTO.setGeolocalizacion(mesa.getGeolocalizacion());
 		return mesaDTO;
 	}
 
@@ -25,6 +26,7 @@ public class MesaMapperImplements implements MesaMapper {
 		mesa.setEstado(mesaDTO.isEstado());
 		mesa.setPersona(mesaDTO.getEmpleado());
 		mesa.setToken(mesaDTO.getToken());
+		mesa.setGeolocalizacion(mesaDTO.getGeolocalizacion());
 		
 		
 		return mesa;
@@ -39,6 +41,7 @@ public class MesaMapperImplements implements MesaMapper {
 		mesa.setId(mesaDTO.getId());
 		mesa.setPersona(mesaDTO.getEmpleado());
 		mesa.setToken(mesaDTO.getToken());
+		mesa.setGeolocalizacion(mesaDTO.getGeolocalizacion());
 		
 		return mesa;
 	}

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="Ocupacion")
 public class Ocupacion {
 	
 	@Id
@@ -26,9 +26,6 @@ public class Ocupacion {
 	
 	@Column(name="fin",nullable = true)
 	private LocalDateTime fin;
-	
-	@Column(name="idDispositivo",nullable = true)
-	private String idDispositivo;
 
 	
 	@OneToMany(mappedBy = "ocupacion")
@@ -41,12 +38,11 @@ public class Ocupacion {
 	@JoinColumn(name="mesaId")
 	private Mesa mesa;
 
-	public Ocupacion(Long id, LocalDateTime inicio, LocalDateTime fin, String idDispositivo, Mesa mesa) {
+	public Ocupacion(Long id, LocalDateTime inicio, LocalDateTime fin, Mesa mesa) {
 		super();
 		this.id = id;
 		this.inicio = inicio;
 		this.fin = fin;
-		this.idDispositivo = idDispositivo;
 		this.mesa = mesa;
 	}
 
@@ -78,13 +74,7 @@ public class Ocupacion {
 		this.fin = fin;
 	}
 
-	public String getIdDispositivo() {
-		return idDispositivo;
-	}
 
-	public void setIdDispositivo(String idDispositivo) {
-		this.idDispositivo = idDispositivo;
-	}
 
 	public Mesa getMesa() {
 		return mesa;
@@ -112,7 +102,7 @@ public class Ocupacion {
 
 	@Override
 	public String toString() {
-		return "Ocupacion [id=" + id + ", inicio=" + inicio + ", fin=" + fin + ", idDispositivo=" + idDispositivo
+		return "Ocupacion [id=" + id + ", inicio=" + inicio + ", fin=" + fin 
 				+ ", mesa=" + mesa + "]";
 	}
 	

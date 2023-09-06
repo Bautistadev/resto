@@ -121,11 +121,6 @@ public class Bebida {
 	}
 
 
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-
 	@Override
 	public String toString() {
 		return "Bebida [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", dateCreated="

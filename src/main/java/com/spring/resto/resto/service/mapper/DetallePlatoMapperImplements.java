@@ -14,9 +14,11 @@ public class DetallePlatoMapperImplements implements DetallePlatoMapper{
 		DetallePlatoDTO detallePlatoDTO = new DetallePlatoDTO();
 		detallePlatoDTO.setId(detallePlato.getId());
 		detallePlatoDTO.setPorcion(detallePlato.getPorcion());
-		detallePlatoDTO.setPlato(detallePlatoDTO.getPlato());
+		detallePlatoDTO.setPlato(detallePlato.getPlato());
+		detallePlatoDTO.setCantidad(detallePlato.getCantidad());
 		detallePlatoDTO.setOcupacion(detallePlato.getOcupacion());
 		
+
 		return detallePlatoDTO;
 	}
 
@@ -28,6 +30,7 @@ public class DetallePlatoMapperImplements implements DetallePlatoMapper{
 		DetallePlato detallePlato = new DetallePlato();
 		detallePlato.setPorcion(detallePlatoRequestDTO.getPorcion());
 		detallePlato.setPlato(detallePlatoRequestDTO.getPlato());
+		detallePlato.setCantidad(detallePlatoRequestDTO.getCantidad());
 		detallePlato.setOcupacion(detallePlatoRequestDTO.getOcupacion());		
 		
 		return detallePlato;
@@ -40,6 +43,7 @@ public class DetallePlatoMapperImplements implements DetallePlatoMapper{
 		DetallePlato detallePlato = new DetallePlato();
 		detallePlato.setPorcion(detallePlatoDTO.getPorcion());
 		detallePlato.setPlato(detallePlatoDTO.getPlato());
+		detallePlato.setCantidad(detallePlatoDTO.getCantidad());
 		detallePlato.setOcupacion(detallePlatoDTO.getOcupacion());		
 		
 		return detallePlato;

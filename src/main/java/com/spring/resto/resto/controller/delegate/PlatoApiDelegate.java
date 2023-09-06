@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.spring.resto.resto.DTO.PlatoDTO;
 import com.spring.resto.resto.DTO.PlatoRequestDTO;
@@ -33,7 +36,7 @@ public interface PlatoApiDelegate {
 	public PlatoDTO retrivePlato(@PathVariable Long id);
 	
 	@PostMapping("/addPlato")
-	public PlatoDTO createPlato(@Valid @RequestBody PlatoRequestDTO request);
+	public PlatoDTO createPlato(@Valid @RequestBody PlatoRequestDTO plato);
 	
 	@PutMapping("/updatePlato")
 	public PlatoDTO updatePlato(@Valid @RequestBody PlatoDTO requestDTO);

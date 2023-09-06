@@ -14,10 +14,11 @@ public class OcupacionDTO {
 	@NotNull
 	private LocalDateTime inicio;
 	private LocalDateTime fin;
+	private Mesa mesa;
 	private List<DetallePlato> detallePlato;
 	private List<DetalleBebida> detalleBebida;
 	
-	public OcupacionDTO(Long id, LocalDateTime inicio, LocalDateTime fin, List<DetallePlato> detallePlato,
+	public OcupacionDTO(Long id,Mesa mesa, LocalDateTime inicio, LocalDateTime fin, List<DetallePlato> detallePlato,
 			List<DetalleBebida> detalleBebida) {
 		super();
 		this.id = id;
@@ -25,6 +26,7 @@ public class OcupacionDTO {
 		this.fin = fin;
 		this.detallePlato = detallePlato;
 		this.detalleBebida = detalleBebida;
+		this.mesa = mesa;
 	}
 
 	public OcupacionDTO() {
@@ -69,6 +71,15 @@ public class OcupacionDTO {
 
 	public void setDetalleBebida(List<DetalleBebida> detalleBebida) {
 		this.detalleBebida = detalleBebida;
+	}
+	
+
+	public Mesa getMesa() {
+		return mesa;
+	}
+
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
 	}
 
 	@Override

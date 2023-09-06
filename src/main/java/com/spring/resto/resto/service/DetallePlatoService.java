@@ -23,12 +23,12 @@ public class DetallePlatoService {
 		this.detallePlatoMapper = detallePlatoMapper;
 	}
 	
-	public DetallePlatoDTO create(DetallePlatoRequestDTO detallePlatoRequestDTO) {
+	public DetallePlato create(DetallePlatoRequestDTO detallePlatoRequestDTO) {
 		
 		DetallePlato detallePlato = detallePlatoMapper.map(detallePlatoRequestDTO);
 		detallePlatoRepository.save(detallePlato);
 		
-		return detallePlatoMapper.map(detallePlato);
+		return detallePlato;
 	}
 	
 	public DetallePlatoDTO update(DetallePlatoDTO detallePlatoDTO) {	
@@ -51,8 +51,10 @@ public class DetallePlatoService {
 		Iterator<DetallePlato> detallePlatoIterator = detallePlatoIterable.iterator();
 		List<DetallePlatoDTO> listaDetallePlato = new ArrayList<>();
 		
-		while(detallePlatoIterator.hasNext())
+		while(detallePlatoIterator.hasNext()) {
 			listaDetallePlato.add(detallePlatoMapper.map(detallePlatoIterator.next()));
+		}
+		System.out.println(listaDetallePlato);
 		
 		return listaDetallePlato;
 			

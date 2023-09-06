@@ -44,4 +44,23 @@ public class MesaController implements MesaApiDelegate {
 		return this.mesaService.retriveAll();
 	}
 
+	@Override
+	public String getMesaToken(Long id) {
+		// TODO Auto-generated method stub
+		return this.mesaService.getMesaToken(id);
+	}
+
+	@Override
+	public MesaDTO getMesaByToken(String token) {
+		// TODO Auto-generated method stub
+		return this.mesaService.retriveMesaByToken(token);
+	}
+
+	@Override
+	public void dejarMesa(@Valid Long id) {
+		// TODO Auto-generated method stub
+		this.mesaService.dejarMesa(id);	
+
+	}
+
 }

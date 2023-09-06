@@ -12,13 +12,15 @@ public class MesaDTO {
 	private String token;
 	private boolean estado;
 	private Empleado empleado;
+	private Geolocalizacion geolocalizacion;
 	
-	public MesaDTO(Long id, String token, boolean estado, Empleado empleado) {
+	public MesaDTO(Long id, String token, boolean estado, Empleado empleado,Geolocalizacion geolocalizacion) {
 		super();
 		this.id = id;
 		this.token = token;
 		this.estado = estado;
 		this.empleado = empleado;
+		this.geolocalizacion = geolocalizacion;
 	}
 	public MesaDTO() {
 		super();
@@ -45,6 +47,16 @@ public class MesaDTO {
 		return empleado;
 	}
 	public void setPersona(Empleado empleado) {
+		this.empleado = empleado;
+	}
+	
+	public Geolocalizacion getGeolocalizacion() {
+		return geolocalizacion;
+	}
+	public void setGeolocalizacion(Geolocalizacion geolocalizacion) {
+		this.geolocalizacion = geolocalizacion;
+	}
+	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
 	@Override

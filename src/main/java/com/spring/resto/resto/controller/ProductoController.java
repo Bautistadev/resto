@@ -1,8 +1,12 @@
 package com.spring.resto.resto.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.validation.Valid;
+
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.spring.resto.resto.DTO.BebidaDTO;
 import com.spring.resto.resto.DTO.BebidaRequestDTO;
@@ -44,13 +48,15 @@ public class ProductoController implements PlatoApiDelegate,BebidaApiDelegate {
 
 
 	@Override
-	public PlatoDTO createPlato(PlatoRequestDTO requestDTO) {
+	public PlatoDTO createPlato(@Valid PlatoRequestDTO plato) {
 		// TODO Auto-generated method stub
 		
-		return platoService.create(requestDTO);
+		System.out.println(plato.toString());
+		return this.platoService.create(plato);
 	}
 
 
+	
 	@Override
 	public PlatoDTO updatePlato(PlatoDTO requestDTO) {
 		// TODO Auto-generated method stub
@@ -98,7 +104,14 @@ public class ProductoController implements PlatoApiDelegate,BebidaApiDelegate {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+
+
+
+
+
+
+
 
 
 }

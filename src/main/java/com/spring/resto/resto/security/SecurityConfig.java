@@ -18,10 +18,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.resto.resto.security.custom.CustomAuthorizationFilter;
 import com.spring.resto.resto.security.service.utils.JwtTokenUtils;
 
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.security.SecurityRequirement;
-import io.swagger.v3.oas.models.security.SecurityScheme;
 
 @Configuration
 @EnableWebSecurity
@@ -51,17 +47,18 @@ public class SecurityConfig {
 			@Value("${api.basePath}") String basePath) throws Exception {
 		http.cors().and().csrf().disable();
 	    http.authorizeRequests().antMatchers(basePath + "/security/**").permitAll();
-	    http.authorizeRequests().antMatchers(basePath + "/Empleado/**").hasAnyAuthority("ROLE_ADMIN");
-	    http.authorizeRequests().antMatchers(basePath+"/Plato/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
-	    http.authorizeRequests().antMatchers(basePath+"/Cliente/**").hasAnyRole("ADMIN");
-	    http.authorizeRequests().antMatchers(basePath+"/Hora/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+	    http.authorizeRequests().antMatchers(basePath + "/Empleado/**").permitAll();
+	    http.authorizeRequests().antMatchers(basePath+"/Plato/**").permitAll();
+	    http.authorizeRequests().antMatchers(basePath+"/Cliente/**").permitAll();
+	    http.authorizeRequests().antMatchers(basePath+"/Hora/**").permitAll();
 	    http.authorizeRequests().antMatchers(basePath+"/Geolocalizacion/update").hasAnyAuthority("ROLE_ADMIN");
 	    http.authorizeRequests().antMatchers(basePath+"/Geolocalizacion/add").hasAnyAuthority("ROLE_ADMIN");
-	    http.authorizeRequests().antMatchers(basePath+"/Geolocalizacion/retriveAll").hasAnyAuthority("ROLE_ADMIN","ROLE_USER");
+	    http.authorizeRequests().antMatchers(basePath+"/Geolocalizacion/retriveAll").permitAll();
 	    http.authorizeRequests().antMatchers("/swagger-ui/**").permitAll();
 	    http.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
 	    http.authorizeRequests().anyRequest().permitAll();
 	    http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	    //APLICAMOS EL FILTRO ANTERIORMEENTE CONFIGURADO
 	    http.addFilterBefore(customAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 	 }

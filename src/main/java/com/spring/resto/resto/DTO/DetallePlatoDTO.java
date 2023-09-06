@@ -1,16 +1,21 @@
 package com.spring.resto.resto.DTO;
 
+import javax.validation.constraints.NotNull;
+
 import com.spring.resto.resto.entity.Ocupacion;
 import com.spring.resto.resto.entity.Plato;
 import com.spring.resto.resto.entity.Porcion;
 
 public class DetallePlatoDTO {
 	
+	@NotNull
 	private Long id;
+	@NotNull
 	private Integer cantidad;
 	private Porcion porcion;
 	private Plato plato;
 	private Ocupacion ocupacion;
+	
 	public DetallePlatoDTO(Long id, Integer cantidad, Porcion porcion, Plato plato, Ocupacion ocupacion) {
 		super();
 		this.id = id;
@@ -52,6 +57,7 @@ public class DetallePlatoDTO {
 	public void setOcupacion(Ocupacion ocupacion) {
 		this.ocupacion = ocupacion;
 	}
+	
 	@Override
 	public String toString() {
 		return "DetallePlatoDTO [id=" + id + ", cantidad=" + cantidad + ", porcion=" + porcion + ", plato=" + plato

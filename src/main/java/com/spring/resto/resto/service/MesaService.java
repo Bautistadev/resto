@@ -10,6 +10,8 @@ import com.spring.resto.resto.entity.Mesa;
 import com.spring.resto.resto.repository.MesaRepository;
 import com.spring.resto.resto.service.mapper.MesaMapper;
 
+import net.bytebuddy.asm.Advice.This;
+
 public class MesaService {
 	
 	private MesaRepository mesaRepository;
@@ -58,6 +60,21 @@ public class MesaService {
 			listaMesaDTO.add(this.mesaMapper.map(mesaIterator.next()));
 		
 		return listaMesaDTO;
+	}
+	
+	public String getMesaToken(Long id) {
+		return this.mesaRepository.findMesaToken(id);
+	}
+	
+	public MesaDTO retriveMesaByToken(String token) {
+		
+		MesaDTO responseMesa = this.mesaMapper.map(this.mesaRepository.findMesaByToken(token));
+		
+		return responseMesa;
+	}
+	
+	public void dejarMesa(Long id) {
+		this.mesaRepository.dejarMesa(id);
 	}
 	
 }

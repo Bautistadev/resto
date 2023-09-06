@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.resto.resto.DTO.DetallePlatoDTO;
 import com.spring.resto.resto.DTO.DetallePlatoRequestDTO;
+import com.spring.resto.resto.entity.DetallePlato;
 
 
 @RestController
@@ -21,7 +22,7 @@ import com.spring.resto.resto.DTO.DetallePlatoRequestDTO;
 public interface DetallePlatoApiDelegate {
 	
 	@PostMapping("/add")
-	public DetallePlatoDTO create(@Valid @RequestBody DetallePlatoRequestDTO requestDTO);
+	public DetallePlato create(@Valid @RequestBody DetallePlatoRequestDTO requestDTO);
 	
 	@PutMapping("/update")
 	public DetallePlatoDTO update(@Valid @RequestBody DetallePlatoDTO requestDTO);

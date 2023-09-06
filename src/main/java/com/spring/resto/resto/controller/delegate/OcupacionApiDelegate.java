@@ -25,9 +25,9 @@ public interface OcupacionApiDelegate {
 	@PutMapping("/update")
 	public OcupacionDTO update(@Valid @RequestBody OcupacionDTO request);
 	
-	@GetMapping("retrive/{id}")
+	@GetMapping("/retrive/{id}")
 	public OcupacionDTO retrive(@PathVariable Long id);
 	
-	@GetMapping("retriveAll")
+	@GetMapping("/retriveAll")
 	public List<OcupacionDTO> retriveAll();
 }

@@ -1,5 +1,7 @@
 package com.spring.resto.resto.DTO;
 
+import java.util.Arrays;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -20,6 +22,8 @@ public class PlatoRequestDTO {
 	private Float precio;
 	
 
+	
+
 	public PlatoRequestDTO(@NotBlank String nombre, @NotBlank String descripcion, @NotNull Categoria categoria, @NotNull Float precio) {
 		super();
 		this.nombre = nombre;
@@ -27,6 +31,8 @@ public class PlatoRequestDTO {
 		this.categoria = categoria;
 		this.precio = precio;
 	}
+	
+	
 
 	public PlatoRequestDTO() {
 		super();
@@ -64,10 +70,20 @@ public class PlatoRequestDTO {
 		this.precio = precio;
 	}
 
+
+
+
+
 	@Override
 	public String toString() {
 		return "PlatoRequestDTO [nombre=" + nombre + ", descripcion=" + descripcion + ", categoria=" + categoria
-				+ ", precio=" + precio + "]";
+				+ ", precio=" + precio  + "]";
 	}
+
+
+
+	
+	
+	
 
 }

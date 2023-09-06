@@ -9,6 +9,8 @@ import com.spring.resto.resto.security.service.UserDefaultService;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.spring.resto.resto"})
 @EnableAutoConfiguration
 
-public class RestoApplication  implements CommandLineRunner {
+public class RestoApplication  extends SpringBootServletInitializer implements CommandLineRunner {
 
 	public static void main(String[] args){
 		ConfigurableApplicationContext ctx =  SpringApplication.run(RestoApplication.class, args);
@@ -38,6 +40,14 @@ public class RestoApplication  implements CommandLineRunner {
 		userDefault.createDefaultAdminUser();
 		
 	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		// TODO Auto-generated method stub
+		
+		return builder.sources(RestoApplication.class);
+	}
+	
 	
 	
 

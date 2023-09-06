@@ -1,6 +1,7 @@
 package com.spring.resto.resto.DTO;
 
 
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
@@ -32,6 +33,8 @@ public class PlatoDTO {
 	private Categoria categoria;
 	
 
+	
+
 	public PlatoDTO(@NotBlank Long id, @NotBlank String nombre, @NotBlank String descripcion,
 			@NotBlank Date dateCreated, Date dateDeleted,Categoria categoria, @NotNull Float precio) {
 		super();
@@ -43,6 +46,10 @@ public class PlatoDTO {
 		this.categoria = categoria;
 		this.precio = precio;
 	}
+	
+	
+
+
 
 	public PlatoDTO() {
 		super();
@@ -104,13 +111,16 @@ public class PlatoDTO {
 		this.precio = precio;
 	}
 
+
+
+
+
 	@Override
 	public String toString() {
 		return "PlatoDTO [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
 				+ ", dateCreated=" + dateCreated + ", dateDeleted=" + dateDeleted + ", categoria=" + categoria + "]";
 	}
 
-	
 
 	
 	

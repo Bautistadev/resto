@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import com.spring.resto.resto.DTO.DetallePlatoDTO;
 import com.spring.resto.resto.DTO.DetallePlatoRequestDTO;
 import com.spring.resto.resto.controller.delegate.DetallePlatoApiDelegate;
+import com.spring.resto.resto.entity.DetallePlato;
 import com.spring.resto.resto.service.DetallePlatoService;
 
 public class DetallePlatoController implements DetallePlatoApiDelegate{
@@ -19,7 +20,7 @@ public class DetallePlatoController implements DetallePlatoApiDelegate{
 	}
 
 	@Override
-	public DetallePlatoDTO create(@Valid DetallePlatoRequestDTO requestDTO) {
+	public DetallePlato create(@Valid DetallePlatoRequestDTO requestDTO) {
 		// TODO Auto-generated method stub
 		return this.detallePlatoService.create(requestDTO);
 	}

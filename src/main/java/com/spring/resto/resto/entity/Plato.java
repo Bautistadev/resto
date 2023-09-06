@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -37,6 +38,8 @@ public class Plato {
 	@ManyToOne
 	@JoinColumn(name = "categoriaId")
 	private Categoria categoria;
+	
+
 
 	public Plato(Long id, String nombre, String descripcion, Date dateCreated, Date dateDeleted,Float precio) {
 		super();
@@ -47,6 +50,7 @@ public class Plato {
 		this.dateDeleted = dateDeleted;
 		this.precio = precio;
 	}
+	
 
 	public Plato() {
 		super();
@@ -110,6 +114,7 @@ public class Plato {
 		this.precio = precio;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Plato [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", dateCreated="
@@ -117,9 +122,6 @@ public class Plato {
 				+ "]";
 	}
 
-	
-	
-	
 	
 	
 }
