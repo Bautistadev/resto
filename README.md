@@ -7,7 +7,8 @@
 4. [Tecnologías utilizadas](#tecnologías-utilizadas)
 5. [Comparativa](#comparativa)
 6. [Funcionalidades](#funcionalidades)
-7. [Configuracion](#configuracion)
+7. [Configuración](#configuracion)
+8. [Modelado de base de datos](#Modelado-de-base-de-datos)
 
 ## Descripción
 Este es el backend de una aplicación para la gestión de un restaurante, desarrollado en **Java Spring Boot**. La aplicación se encarga de manejar la autenticación de usuarios mediante tokens, así como la generación de códigos que luego se transformarán en QR para las mesas del restaurante.
@@ -446,7 +447,7 @@ Esta aplicación surge para abordar estos desafíos. Al implementar un sistema d
   - 🟡 **/api/v1/Geolocalizacion/update**
     
 
-## Configuracion 
+## Configuración 
 
 1. Clonar el repositorio:
 
