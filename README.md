@@ -1,5 +1,15 @@
 # Restaurante Backend - Java Spring Boot
 
+## Índice
+1. [Descripción](#descripción)
+2. [Problemática](#problemática)
+3. [Requesitos](#requisitos)
+4. [Tecnologías utilizadas](#tecnologías-utilizadas)
+5. [Comparativa](#comparativa)
+6. [Funcionalidades](#funcionalidades)
+7. [Configuracion](#configuracion)
+
+## Descripción
 Este es el backend de una aplicación para la gestión de un restaurante, desarrollado en **Java Spring Boot**. La aplicación se encarga de manejar la autenticación de usuarios mediante tokens, así como la generación de códigos que luego se transformarán en QR para las mesas del restaurante.
 
 ## Problemática
@@ -436,14 +446,36 @@ Esta aplicación surge para abordar estos desafíos. Al implementar un sistema d
   - 🟡 **/api/v1/Geolocalizacion/update**
     
 
-## Instalación
+## Configuracion 
 
-1. **Clonar el repositorio:**
+1. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/usuario/restaurante-backend.git
-   cd restaurante-backend
+   git clone https://github.com/Bautistadev/resto.git
+   cd resto
+   ```
+2. Variables de entorno:
+   ```bash
+      export ENV_DATABASE_DB = "Nombre de la base de datos"
+      export ENV_PASSWORD_DB = "Contraseña de la base de datos"
+      export ENV_USER_DB = "Usuario de la base de datos"
+      export ENV_PORT_SERVICE = "Puerto en el cual se ejecuta"
+      export ENV_URI_DB = "Direccion de la base de datos (localhost, 192.168.xxx.xxx, http/.....)"
+   ```
+3. Resolver dependencias:
+   ``` Maven
+       mvn dependency:resolve
+   ```
+4. Compilar: 
+   ```Maven
+      mvn install
+   ```  
+5. Correr test (Opcional y verificar haber configurado las variables de entorno):
+   ```Maven
+      mvn test
+   ```
    
-2. **Modelado de base de datos**
+   
+## Modelado de base de datos
 
 ![Untitled2](https://github.com/user-attachments/assets/a27f8ee9-26ae-4d58-bcb8-df4d7f10c8dd)
