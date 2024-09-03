@@ -3,7 +3,7 @@
 ## Índice
 1. [Descripción](#descripción)
 2. [Problemática](#problemática)
-3. [Requesitos](#requisitos)
+3. [Requisitos](#requisitos)
 4. [Tecnologías utilizadas](#tecnologías-utilizadas)
 5. [Comparativa](#comparativa)
 6. [Funcionalidades](#funcionalidades)
